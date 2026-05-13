@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>АрхитекТуры — Студенческое проектное бюро СПбПУ</title>
+  <meta name="description" content="Студенческое проектное бюро «АрхитекТуры» при Санкт-Петербургском политехническом университете Петра Великого. Экскурсии, архитектурные туры, культурно-образовательные проекты.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app-root">
+    <!-- HEADER (статический, но управление бургером через JS) -->
+    <header class="header" id="mainHeader">
+      <div class="header-inner">
+        <a href="#hero" class="header-logo" id="logoLink">
+          <svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Логотип АрхитекТуры">
+            <rect width="100" height="100" rx="8" fill="#EDE8DF"/>
+            <polygon points="15,85 45,20 60,55 35,55 35,65 70,65 70,85" fill="#C0432A"/>
+            <rect x="55" y="15" width="35" height="45" rx="3" fill="#2B5BA8"/>
+            <rect x="60" y="20" width="25" height="5" fill="white" opacity="0.8"/>
+            <rect x="69" y="20" width="7" height="35" fill="white" opacity="0.8"/>
+            <circle cx="78" cy="62" r="4" fill="white" opacity="0.8"/>
+          </svg>
+          <div class="header-logo-text">
+            <span class="header-logo-name">Архитек<span>Туры</span></span>
+            <span class="header-logo-sub">студенческое проектное бюро · СПбПУ</span>
+          </div>
+        </a>
+        <nav class="nav" role="navigation" aria-label="Основное меню">
+          <a href="#about" class="nav-link">О нас</a>
+          <a href="#portfolio" class="nav-link">Портфолио</a>
+          <a href="#projects-dev" class="nav-link">Проекты</a>
+          <a href="#mosaic" class="nav-link">Пб. мозаика</a>
+          <a href="#gallery" class="nav-link">Фотовернисаж</a>
+          <a href="#news" class="nav-link">Новости</a>
+          <a href="#contacts" class="nav-link">Контакты</a>
+        </nav>
+        <button class="burger-btn" id="burgerBtn" aria-label="Меню" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню">
+        <a href="#about" class="nav-link">О нас</a>
+        <a href="#portfolio" class="nav-link">Портфолио</a>
+        <a href="#projects-dev" class="nav-link">Проекты</a>
+        <a href="#mosaic" class="nav-link">Пб. мозаика</a>
+        <a href="#gallery" class="nav-link">Фотовернисаж</a>
+        <a href="#news" class="nav-link">Новости</a>
+        <a href="#contacts" class="nav-link">Контакты</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO блок -->
+      <section id="hero" class="hero">
+        <div class="hero-bg" style="background-image: url('https://picsum.photos/seed/spb-polytech-hero/1600/900');" role="img" aria-label="Панорама Петербурга"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <div class="hero-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            СПбПУ Петра Великого · ИПМЭиТ
+          </div>
+          <h1 class="hero-title">Архитек<span>Туры</span></h1>
+          <p class="hero-subtitle">Студенческое проектное бюро</p>
+          <p class="hero-desc">Мы открываем Петербург через призму архитектуры, истории и культуры. Авторские экскурсии, образовательные проекты, работа с культурным наследием города.</p>
+          <div class="hero-buttons">
+            <a href="#portfolio" class="btn btn-primary" id="heroPortfolioBtn">Наши экскурсии</a>
+            <a href="#about" class="btn btn-outline" style="color:white; border-color:rgba(255,255,255,0.6);">О проектном бюро</a>
+          </div>
+        </div>
+        <a href="#about" class="hero-scroll" id="heroScrollBtn">Листайте <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></a>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- О НАС (статическая основа + динамические списки и структура) -->
+      <section id="about" class="about section-padding">
+        <div class="container">
+          <h2 class="section-title">О нас</h2>
+          <p class="section-subtitle">Student Project Bureau «ArkhitekTury» — СПбПУ Петра Великого</p>
+          <div class="about-grid">
+            <div>
+              <h3 style="font-size:20px; font-weight:700; margin-bottom:20px; font-family:var(--font-heading)">История создания</h3>
+              <div class="about-history">
+                <p>Студенческое проектное бюро «АрхитекТуры» создано при поддержке Института промышленного менеджмента, экономики и торговли (ИПМЭиТ) Санкт-Петербургского политехнического университета Петра Великого и Совета по молодёжной политике СПбПУ.</p>
+                <p>Бюро объединяет студентов, увлечённых историей и архитектурой Санкт-Петербурга, стремящихся развивать экскурсионное дело и создавать уникальные культурно-образовательные продукты на базе университета.</p>
+                <p>Со дня основания бюро реализовало ряд авторских экскурсионных маршрутов, приняло участие в научных конференциях и грантовых конкурсах, наладило партнёрство с городскими туристическими организациями.</p>
+                <div style="margin-top:24px"><div style="background:var(--color-white); border-radius:var(--radius-md); padding:20px; border-left:4px solid var(--color-terracotta); box-shadow:var(--shadow-sm)"><p style="margin-bottom:0; font-family:var(--font-heading); font-size:14px; font-style:italic">«Наша миссия — сделать богатейшее культурное наследие Петербурга ближе к людям, открыть его через живое слово и авторский взгляд студентов Политеха.»</p></div></div>
+              </div>
+            </div>
+            <div class="about-goals">
+              <h3>Цели и задачи</h3>
+              <ul class="goals-list" id="goalsList"></ul>
+            </div>
+          </div>
+          <div class="about-structure">
+            <h3 style="font-size:22px; font-weight:700;">Структура актива</h3>
+            <p style="font-family:var(--font-heading); font-size:14px; color:var(--color-gray); margin-top:8px;">Высший орган управления — Совет проектного бюро (заседания не реже 1 раза в год). Руководитель избирается на заседании Совета.</p>
+            <div class="structure-grid" id="structureGrid"></div>
+          </div>
+          <div class="about-download">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-terracotta)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zm-3-7l-3 3-3-3h2v-3h2v3h2z"/></svg>
+            <a href="#" class="btn btn-outline" id="downloadPdfBtn">Скачать Положение о проектном бюро (PDF)</a>
+            <span style="font-family:var(--font-heading); font-size:13px; color:var(--color-gray);">— официальный документ</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ПОРТФОЛИО (динамические карточки) -->
+      <section id="portfolio" class="portfolio section-padding">
+        <div class="container">
+          <h2 class="section-title">Портфолио</h2>
+          <p class="section-subtitle">Реализованные экскурсии и мероприятия</p>
+          <div class="portfolio-grid" id="portfolioGrid"></div>
+          <div class="events-section">
+            <h3 style="font-size:22px; font-weight:700;">Участие в мероприятиях</h3>
+            <p style="font-family:var(--font-heading); font-size:14px; color:var(--color-gray); margin-bottom:8px;">Конференции, форумы, грантовые конкурсы</p>
+            <div class="events-grid" id="eventsGrid"></div>
+          </div>
+          <div class="partners-section">
+            <h3 style="font-size:22px; font-weight:700;">Партнёры</h3>
+            <div class="partners-grid" id="partnersGrid">
+              <!-- статический партнёры добавим через JS для динамики но можно статически, сделаем через JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ПРОЕКТЫ НА РАЗРАБОТКЕ -->
+      <section id="projects-dev" class="projects-dev section-padding">
+        <div class="container">
+          <h2 class="section-title">Проекты на разработке</h2>
+          <p class="section-subtitle">Идеи, над которыми мы работаем прямо сейчас</p>
+          <div class="projects-dev-grid" id="projectsDevGrid"></div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ПЕТЕРБУРГСКАЯ МОЗАИКА -->
+      <section id="mosaic" class="mosaic section-padding">
+        <div class="container">
+          <h2 class="section-title">Петербургская мозаика</h2>
+          <p class="section-subtitle">Интересные материалы об истории и культуре Санкт-Петербурга</p>
+          <div class="mosaic-grid" id="mosaicGrid"></div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ФОТОВЕРНИСАЖ (галерея) -->
+      <section id="gallery" class="gallery section-padding">
+        <div class="container">
+          <h2 class="section-title">Фотовернисаж</h2>
+          <p class="section-subtitle">Фотографии архитектуры Петербурга и мероприятий проектного бюро</p>
+          <div class="gallery-grid" id="galleryGrid"></div>
+          <div class="gallery-notice">
+            <strong>⚠️ Правовая оговорка</strong><br>
+            Все фото размещены с согласия участников и авторов. Копирование только с письменного разрешения студенческого проектного бюро «АрхитекТуры». Фотографии на данной странице являются <em>демо-контентом</em> и будут заменены реальными фотоматериалами.
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- НОВОСТИ -->
+      <section id="news" class="news section-padding">
+        <div class="container">
+          <h2 class="section-title">Новости</h2>
+          <p class="section-subtitle">Последние события проектного бюро</p>
+          <div class="news-list" id="newsList"></div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- КОНТАКТЫ -->
+      <section id="contacts" class="contacts section-padding">
+        <div class="container">
+          <h2 class="section-title">Контакты</h2>
+          <p class="section-subtitle">Свяжитесь с проектным бюро «АрхитекТуры»</p>
+          <div class="contacts-grid">
+            <div class="contact-form" id="contactFormContainer">
+              <h3>Напишите нам</h3>
+              <form id="feedbackForm" novalidate>
+                <div class="form-group"><label for="contact-name">Имя *</label><input type="text" id="contact-name" placeholder="Ваше имя" required autocomplete="name"></div>
+                <div class="form-group"><label for="contact-email">Email *</label><input type="email" id="contact-email" placeholder="your@email.ru" required autocomplete="email"></div>
+                <div class="form-group"><label for="contact-message">Сообщение *</label><textarea id="contact-message" placeholder="Ваш вопрос или предложение..." required></textarea></div>
+                <div class="form-consent"><input type="checkbox" id="consentCheckbox" required><label for="consentCheckbox">Я согласен на обработку персональных данных в соответствии с <a href="#" id="privacyPolicyLink">Политикой конфиденциальности</a></label></div>
+                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Отправить</button>
+              </form>
+            </div>
+            <div class="contact-info">
+              <div class="contact-info-block"><h3>Реквизиты</h3>
+                <div class="contact-detail"><span class="contact-detail-icon">📧</span><div class="contact-detail-text"><strong>Email</strong><a href="mailto:architektury@spbstu.ru">architektury@spbstu.ru</a></div></div>
+                <div class="contact-detail"><span class="contact-detail-icon">📍</span><div class="contact-detail-text"><strong>Адрес</strong>Новороссийская ул., 50, Санкт-Петербург, 195220</div></div>
+                <div class="contact-detail"><span class="contact-detail-icon">🏛️</span><div class="contact-detail-text"><strong>Организация</strong>СПбПУ Петра Великого, ИПМЭиТ</div></div>
+              </div>
+              <div class="contact-info-block"><h3>Мы ВКонтакте</h3>
+                <div class="qr-block"><img src="https://api.qrserver.com/v1/create-qr-code/?size=96x96&data=https://vk.com/architektury_spbpu&color=1A1A1A&bgcolor=EDE8DF" alt="QR-код VK" class="qr-code" width="96" height="96"><div class="qr-text"><strong>АрхитекТуры ВКонтакте</strong>Подписывайтесь на обновления.<br><a href="https://vk.com/architektury_spbpu" target="_blank" rel="noopener noreferrer">vk.com/architektury_spbpu</a></div></div>
+              </div>
+              <div class="contact-info-block"><h3>Как нас найти</h3>
+                <div class="map-container"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=30.3550%2C60.0020%2C30.3750%2C60.0120&layer=mapnik&marker=60.0070%2C30.3650" title="Карта" loading="lazy" allow="fullscreen"></iframe></div>
+                <div class="map-directions"><strong>🚇 Как добраться:</strong><ul class="directions-list"><li>Метро «Политехническая» (красная ветка) — 7 минут пешком</li><li>Маршрутные такси от ст. м. «Академическая» по Политехнической ул.</li><li>Автобусы 95, 107, 148 до ост. «Новороссийская ул.»</li></ul></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand"><h3>Архитек<span>Туры</span></h3><p>Студенческое проектное бюро «АрхитекТуры» (Student Project Bureau «ArkhitekTury») при Санкт-Петербургском политехническом университете Петра Великого. Создано при поддержке ИПМЭиТ и Совета по молодёжной политике СПбПУ.</p>
+            <div class="footer-logos"><div class="footer-logo-item"><svg width="36" height="36" viewBox="0 0 100 100"><rect width="100" height="100" rx="8" fill="rgba(255,255,255,0.15)"/><polygon points="15,85 45,20 60,55 35,55 35,65 70,65 70,85" fill="#F0A080"/><rect x="55" y="15" width="35" height="45" rx="3" fill="#4A7BC4"/><rect x="60" y="20" width="25" height="5" fill="white" opacity="0.8"/><rect x="69" y="20" width="7" height="35" fill="white" opacity="0.8"/><circle cx="78" cy="62" r="4" fill="white" opacity="0.8"/></svg></div><div class="footer-logo-item"><span style="font-weight:800; font-size:13px;">СПбПУ<br><span style="font-weight:400;">Петра Великого</span></span></div><div class="footer-logo-item"><svg width="28" height="28" viewBox="0 0 100 100"><rect width="100" height="100" rx="6" fill="#3AAA35"/><text x="50" y="72" text-anchor="middle" font-size="62" font-weight="bold" fill="white" font-family="serif">П</text></svg></div></div>
+          </div>
+          <div class="footer-nav"><h4>Навигация</h4><ul><li><a href="#about">О нас</a></li><li><a href="#portfolio">Портфолио</a></li><li><a href="#projects-dev">Проекты</a></li><li><a href="#mosaic">Пб. мозаика</a></li><li><a href="#gallery">Фотовернисаж</a></li><li><a href="#news">Новости</a></li><li><a href="#contacts">Контакты</a></li></ul></div>
+          <div class="footer-contacts"><h4>Контакты</h4><p>📧 <a href="mailto:architektury@spbstu.ru">architektury@spbstu.ru</a></p><p>📍 Новороссийская ул., 50,<br>Санкт-Петербург, 195220</p><p><a href="https://vk.com/architektury_spbpu" target="_blank">ВКонтакте</a></p><div style="margin-top:16px"><span class="tag tag-terracotta" style="font-size:11px;">Демо-сайт</span><p style="font-size:12px; margin-top:8px; color:rgba(255,255,255,0.4);">Данный сайт является демонстрационной версией.</p></div></div>
+        </div>
+        <div class="footer-bottom"><p class="footer-copyright">© Студенческое проектное бюро «АрхитекТуры», СПбПУ Петра Великого, 2026. Все права защищены.</p><div class="footer-links"><a href="#" id="footerPrivacyLink">Политика конфиденциальности</a><a href="#hero">Наверх ↑</a></div></div>
+      </div>
+    </footer>
+
+    <!-- Модальное окно политики конфиденциальности -->
+    <div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true"><div class="modal"><button class="modal-close" id="closeModalBtn">✕</button><h2 id="privacy-title">Политика конфиденциальности</h2><p>Настоящая Политика конфиденциальности регулирует порядок обработки персональных данных пользователей сайта Студенческого проектного бюро «АрхитекТуры» (Student Project Bureau «ArkhitekTury»), СПбПУ Петра Великого.</p><h3>1. Какие данные мы обрабатываем</h3><p>При заполнении формы обратной связи мы получаем: имя, адрес электронной почты и содержание сообщения. Иные персональные данные не запрашиваются.</p><h3>2. Цели обработки</h3><p>Данные используются исключительно для ответа на ваше обращение. Маркетинговая рассылка без вашего явного согласия не осуществляется.</p><h3>3. Передача третьим лицам</h3><p>Персональные данные не передаются третьим лицам, за исключением случаев, предусмотренных действующим законодательством Российской Федерации.</p><h3>4. Хранение данных</h3><p>Данные хранятся в течение времени, необходимого для обработки вашего обращения, после чего удаляются.</p><h3>5. Ваши права</h3><p>Вы вправе в любое время запросить удаление ваших персональных данных, направив обращение по адресу: <a href="mailto:architektury@spbstu.ru">architektury@spbstu.ru</a>.</p><h3>6. Согласие</h3><p>Отправляя форму обратной связи, вы подтверждаете согласие на обработку указанных персональных данных на условиях настоящей Политики.</p><p style="margin-top:24px; font-size:12px;">Версия от 01.01.2026. Документ носит информационный характер (демо-версия сайта).</p><button class="btn btn-primary" style="margin-top:16px; width:100%;" id="modalAgreeBtn">Понятно, закрыть</button></div></div>
+
+    <!-- Лайтбокс для галереи -->
+    <div class="lightbox" id="lightbox"><img id="lightboxImg" alt=""><button class="lightbox-close" id="lightboxClose">✕</button><p class="lightbox-caption" id="lightboxCaption"></p></div>
+    
+    <button class="back-to-top" id="backToTopBtn" aria-label="Наверх">↑</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
